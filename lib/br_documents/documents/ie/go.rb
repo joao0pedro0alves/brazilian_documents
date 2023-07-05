@@ -8,7 +8,15 @@ module BRDocuments
 
     set_pretty_format_mask %(%s.%s.%s-%s)
 
-    set_fixed_digits [1, 0]
+    set_fixed_digits [[1, 2], 0]
+
+    def self.valid_fixed_digits?(number)
+      number = new(number).normalize
+      current = number[0..1]
+
+      fixed_digits = self.const_get('FIXED_INITIAL_NUMBERS')
+      return fixed_digits[0].member?(current[0]) && fixed_digits[1] == current[1]
+    end
 
   end
 end

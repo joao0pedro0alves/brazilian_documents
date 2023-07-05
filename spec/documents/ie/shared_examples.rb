@@ -1,7 +1,7 @@
 RSpec.shared_examples "IE basic specs" do
   it 'must generate root numbers with fixed numbers' do
 
-    next if [BRDocuments::IE::RJ, BRDocuments::IE::BA].member?(described_class)
+    next if [BRDocuments::IE::GO, BRDocuments::IE::RJ, BRDocuments::IE::BA].member?(described_class)
 
     number = described_class.generate_root_numbers # without formatting
 
